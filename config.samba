@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e "\n[publico]\n path = /home/\n public = yes\n writable = yes\n comment = smb share\n printable = no\n guest ok = yes\n"
