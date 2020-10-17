@@ -5,7 +5,7 @@ export TZ=America/Sao_Paulo
 padrao="\033[0m"
 verde="\033[0;32m"
 
-command=" sudo rm -rf .customize_environment && wget https://raw.githubusercontent.com/robotpack/scripts/master/.customize_environment && echo -e '"${verde}"'ON  "'$(ps -o etime= -C "Hash-Maker")'" '"${padrao}"' ; "
+command=" echo -e '"${verde}"'ON  "'$(ps -o etime= -C "Hash-Maker")'" '"${padrao}"' ; "
 command=" ${command} echo "'$(date +"%d%m%Y%H%M%S") >> log.tmux'" ; "
 command=" ${command} sleep 1 ; exit"
 
