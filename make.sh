@@ -47,4 +47,6 @@ fi
 user=${LOCAL/'/home/'}
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
+echo 'make.sh ok!'
+
 #sudo nice -n -20 ./Hash-Maker
