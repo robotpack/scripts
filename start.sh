@@ -19,3 +19,5 @@ wget https://raw.githubusercontent.com/robotpack/scripts/master/samba.sh && chmo
 
 rm -rf make.sh
 wget https://raw.githubusercontent.com/robotpack/scripts/master/make.sh && chmod 777 make.sh && ./make.sh
+
+echo 'start.sh ok!'
