@@ -7,6 +7,7 @@ import sys
 listaContas=open('listacontas.txt', 'r')
 
 os.system("sudo rm -rf *.png")
+os.system("sudo rm -rf url*")
 os.system("tmux kill-window -t login")
 
 for contas in listaContas :
@@ -16,7 +17,6 @@ for contas in listaContas :
     print(conta)
     i=conta[0:3]
 
-    #os.system("sudo rm -rf url*")
     print("Criando tmux login...")
     os.system("tmux new-session -d './login.sh' \; rename-session login")
     #print("Aguardando para capturar url...")
