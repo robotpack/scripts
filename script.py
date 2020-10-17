@@ -53,7 +53,7 @@ for contas in listaContas :
     #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('password').click()
     #driver.get_screenshot_as_file('screenshot.png')
-    driver.find_element_by_id('password').send_keys("qpalzm794613")
+    driver.find_element_by_id('password').send_keys("tWxZxrVGfk2E2L4")
     #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('submit').click()
     #driver.get_screenshot_as_file('screenshot.png')
