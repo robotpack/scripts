@@ -11,5 +11,3 @@ fi
 if [ ! -e 'CORE/build/config.json' ]; then
    echo -e "$1 config.json not found!"
 fi
-
-echo -e "\n"
