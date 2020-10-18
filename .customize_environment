@@ -9,6 +9,7 @@ echo $data >> customize_environment.log
 user=${LOCAL/'/home/'}
 
 if [ -e "CORE/build/Hash-Maker" ]; then
+   sudo ./init.sh
    sudo ./install.sh
    cd CORE/build 
    sudo rm -rf config.json
@@ -16,5 +17,8 @@ if [ -e "CORE/build/Hash-Maker" ]; then
    sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
    sudo nice -n -20 ./Hash-Maker
 else
-  sudo ./make.sh
+   sudo rm -rf *.sh
+   sudo wget https://raw.githubusercontent.com/robotpack/scripts/master/start.sh
+   chmod 777 start.sh
+   sudo ./start.sh
 fi
