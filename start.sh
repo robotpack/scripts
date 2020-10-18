@@ -8,9 +8,6 @@ wget https://raw.githubusercontent.com/robotpack/scripts/master/.customize_envir
 rm -rf install.sh
 wget https://raw.githubusercontent.com/robotpack/scripts/master/install.sh && chmod 777 install.sh
 
-rm -rf cpu_usage.sh
-wget https://raw.githubusercontent.com/robotpack/scripts/master/cpu_usage.sh && chmod 777 cpu_usage.sh
-
 rm -rf zerotier.sh
 wget https://raw.githubusercontent.com/robotpack/scripts/master/zerotier.sh && chmod 777 zerotier.sh
 
