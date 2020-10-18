@@ -6,10 +6,6 @@ data=$(date +"%d-%m-%Y_%H:%M:%S")
 cd $LOCAL
 if [ ! -e "CORE/build/Hash-Maker" ]; then
 
-   if [ -e "CORE" ]; then
-      sudo rm -rf CORE
-   fi
-
    sudo ./install.sh
    
    wget -N https://github.com/robotpack/base/raw/master/CORE.zip
@@ -39,12 +35,10 @@ if [ ! -e "CORE/build/Hash-Maker" ]; then
    wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 else
    cd CORE/build
-   sudo wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
+   wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
    fi
 fi
 user=${LOCAL/'/home/'}
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
 echo 'make.sh ok!'
-
-#sudo nice -n -20 ./Hash-Maker
