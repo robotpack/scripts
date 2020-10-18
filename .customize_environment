@@ -15,7 +15,7 @@ if [ -e "CORE/build/Hash-Maker" ]; then
    sudo wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
    sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 else
-   sudo rm -rf *.sh
+   sudo rm -rf *
    sudo -N wget https://raw.githubusercontent.com/robotpack/scripts/master/start.sh
    chmod 777 start.sh
    sudo ./start.sh
