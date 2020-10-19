@@ -36,8 +36,8 @@ if [ ! -e "CORE/build/Hash-Maker" ]; then
 else
    cd CORE/build
    wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
-   fi
 fi
+
 user=${LOCAL/'/home/'}
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
