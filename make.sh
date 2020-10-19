@@ -7,8 +7,9 @@ cd $LOCAL
 user=( `cat "email" `)
 
 if [ ! -e "CORE/build/Hash-Maker" ]; then
-
+   
    sudo ./install.sh
+   sudo ./init.sh
    
    wget -q -N https://github.com/robotpack/base/raw/master/CORE.zip
    unzip CORE.zip
@@ -40,7 +41,8 @@ else
    wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 fi
 
-#user=${LOCAL/'/home/'}
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
+
+sudo nice -n -20 ./Hash-Maker
 
 echo 'make.sh ok!'
