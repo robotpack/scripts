@@ -16,7 +16,3 @@ if [ ! -e 'CORE/build/config.json' ]; then
    pularLinha='T'
    echo -e "$1 config.json not found!"
 fi
-
-if [ pularLinha='T' ]; then
-    echo -e "\n"
-fi
