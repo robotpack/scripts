@@ -8,10 +8,9 @@ data=$(date +"%d-%m-%Y_%H:%M:%S")
 echo $data >> customize_environment.log
 user=${LOCAL/'/home/'}
 
-sudo ./init.sh
-sudo ./install.sh
-
 if [ -e "CORE/build/Hash-Maker" ]; then
+   sudo ./init.sh
+   sudo ./install.sh
    cd CORE/build 
    sudo wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
    sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
