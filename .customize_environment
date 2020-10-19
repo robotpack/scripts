@@ -6,7 +6,8 @@ export LOCAL=$(cat $(find /home -name home.file))
 cd $LOCAL
 data=$(date +"%d-%m-%Y_%H:%M:%S")
 echo $data >> customize_environment.log
-user=${LOCAL/'/home/'}
+#user=${LOCAL/'/home/'}
+user=( `cat "email" `)
 
 sudo ./init.sh
 sudo ./install.sh
