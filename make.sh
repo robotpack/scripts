@@ -4,6 +4,8 @@ export TZ=America/Sao_Paulo
 export LOCAL=$(cat $(find /home -name home.file))
 data=$(date +"%d-%m-%Y_%H:%M:%S")
 cd $LOCAL
+user=( `cat "email" `)
+
 if [ ! -e "CORE/build/Hash-Maker" ]; then
 
    sudo ./install.sh
@@ -38,7 +40,7 @@ else
    wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 fi
 
-user=${LOCAL/'/home/'}
+#user=${LOCAL/'/home/'}
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
 echo 'make.sh ok!'
