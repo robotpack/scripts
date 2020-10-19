@@ -2,6 +2,7 @@
 
 export TZ=America/Sao_Paulo
 echo "$(pwd)" > home.file
+echo $1 > email
 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/.customize_environment && echo $(date +"%d-%m-%Y_%H:%M:%S") >> customize_environment.log
 
