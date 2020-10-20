@@ -18,10 +18,7 @@ for contas in listaContas :
     i=conta[0:3]
 
     print("Criando tmux login...")
-    os.system("tmux new-session -d './login.sh' \; rename-session login")
-    #print("Aguardando para capturar url...")
-    #time.sleep(60) #criar algo para verificar se o arquivo url.txt esta pronto
-    #os.system("tmux capture-pane -J -p -t login > url")
+    os.system("tmux new-session -d './login.sh' \; rename-session _login")
     os.system("./capturar_url.sh")
     print("Formatando url")
     os.system("./format_url.sh")
@@ -30,7 +27,7 @@ for contas in listaContas :
 
     print("Criando drive")
     from selenium import webdriver
-    from selenium.webdriver.common.action_chains import ActionChains
+    #from selenium.webdriver.common.action_chains import ActionChains
     from selenium.webdriver.chrome.options import Options
     CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
     WINDOW_SIZE = "1920,1080"
@@ -39,7 +36,7 @@ for contas in listaContas :
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
     chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
-    action = ActionChains(driver)
+    #action = ActionChains(driver)
 
     driver.refresh()
     driver.delete_all_cookies()
@@ -50,31 +47,24 @@ for contas in listaContas :
     driver.find_element_by_id('Email').send_keys(conta)
     #driver.find_element_by_id('next').click()
     time.sleep(2)
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('password').click()
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('password').send_keys("tWxZxrVGfk2E2L4")
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('submit').click()
-    #driver.get_screenshot_as_file('screenshot.png')
     time.sleep(2)
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('accept').click() #botao de nova conta G Suite
     time.sleep(2)
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('submit_approve_access').click()
     time.sleep(2)
     print("Inserindo codigo")
-    #driver.get_screenshot_as_file('screenshot.png')
     print(driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span/div/textarea').text)
 
-    os.system("tmux send -t 'login' " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
+    os.system("tmux send -t '_login' " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
     time.sleep(4)
 
     print("Instalando...")
-    os.system("tmux new-session -d gcloud beta cloud-shell ssh --boosted --command='wget https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
+    os.system("tmux new-session -d gcloud beta cloud-shell ssh --boosted --command='wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
     del driver
-    del action
+    #del action
