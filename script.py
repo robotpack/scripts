@@ -15,10 +15,10 @@ for contas in listaContas :
     print(" ")
     conta=contas
     print(conta)
-    i=conta[0:3]
+    user=conta[0:3]
 
     print("Criando tmux login...")
-    os.system("tmux new-session -d './login.sh' \; rename-session _login")
+    os.system("tmux new -s _login -d './login.sh'")
     os.system("./capturar_url.sh")
     print("Formatando url")
     os.system("./format_url.sh")
@@ -62,7 +62,7 @@ for contas in listaContas :
     time.sleep(4)
 
     print("Instalando...")
-    os.system("tmux new-session -d gcloud beta cloud-shell ssh --boosted --command='wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
+    os.system("tmux new -s " + user " -d gcloud beta cloud-shell ssh --boosted --command='wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
