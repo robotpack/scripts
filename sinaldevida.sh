@@ -24,7 +24,7 @@ do
      command=""
      command=" ${command} echo -e '"${verde}"'$conta ON'"${padrao}"' ;"
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$conta Hash-Maker not found!'"${padrao}"' ;"
-     command=" ${command} [ ! -e '.customize_environment' ] && echo -e '"${vermelho}"'$conta .customize_environment not found!'"${padrao}"' ;"
+     command=" ${command} [ ! -e '.customize_environment_' ] && echo -e '"${vermelho}"'$conta .customize_environment not found!'"${padrao}"' ;"
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&"
      command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
