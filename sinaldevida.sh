@@ -5,10 +5,6 @@ export TZ=America/Sao_Paulo
 padrao="\033[0m"
 verde="\033[0;32m"
 
-command=" echo -e '"${verde}"'ON  "'$(ps -o etime= -C "Hash-Maker")'" '"${padrao}"' ; "
-command=" ${command} echo "'$(date +"%d%m%Y%H%M%S") >> log.tmux'" ; "
-command=" ${command} sleep 1 ; exit"
-
 while true
 do
 
@@ -23,14 +19,16 @@ do
   do
 
   if echo "$conta" | grep -q "$1"; then
-
-     pre_command=""
-     pre_command="echo $conta > email"
-
+  
+     command=""  
+     command=" ${command} echo -e '"${verde}"'ON  "'$(ps -o etime= -C "Hash-Maker")'" '"${padrao}"' ;"
+     command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh $conta ;"
+     command=" ${command} sleep 1 ; exit"
+  
      echo
      echo $conta
      echo "$(date)"
-     gcloud beta cloud-shell ssh --boosted --command="$pre_command ; $command" --account=$conta --authorize-session --quiet
+     gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --quiet
   fi
 
  done
