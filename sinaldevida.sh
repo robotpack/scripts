@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export TZ=America/Sao_Paulo
-data=$(date +"%d-%m-%Y_%H:%M:%S")
+data=$(date +"%d/%m/%Y %H:%M:%S")
 
 padrao="\033[0m"
 verde="\033[0;32m"
@@ -22,6 +22,8 @@ do
 
   if echo "$conta" | grep -q "$1"; then
 
+     ARQUIVO=$conta
+
      command=""
      command=" ${command} echo -e '"${verde}"'$data $conta ON'"${padrao}"' ;"
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$data $conta Hash-Maker not found!'"${padrao}"' ;"
@@ -31,11 +33,10 @@ do
      command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
      command=" ${command} sleep 1 ; exit"
 
-
      echo
      echo $conta
      echo "$(date)"
-     gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --quiet
+     gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --quiet >> 'logs/'${ARQUIVO/*@/}
   fi
 
  done
