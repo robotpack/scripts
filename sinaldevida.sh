@@ -31,6 +31,7 @@ do
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&"
      command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
+     command=" ${command} echo -e '"${verde}"'$data $conta Install ok!'"${padrao}"' ;"
      command=" ${command} sleep 1 ; exit"
 
      echo
