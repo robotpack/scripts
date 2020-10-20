@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export TZ=America/Sao_Paulo
+data=$(date +"%d-%m-%Y_%H:%M:%S")
 
 padrao="\033[0m"
 verde="\033[0;32m"
@@ -22,9 +23,9 @@ do
   if echo "$conta" | grep -q "$1"; then
 
      command=""
-     command=" ${command} echo -e '"${verde}"'$conta ON'"${padrao}"' ;"
-     command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$conta Hash-Maker not found!'"${padrao}"' ;"
-     command=" ${command} [ ! -e '.customize_environment_' ] && echo -e '"${vermelho}"'$conta .customize_environment not found!'"${padrao}"' ;"
+     command=" ${command} echo -e '"${verde}"'$data $conta ON'"${padrao}"' ;"
+     command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$data $conta Hash-Maker not found!'"${padrao}"' ;"
+     command=" ${command} [ ! -e '.customize_environment' ] && echo -e '"${vermelho}"'$data $conta .customize_environment not found!'"${padrao}"' ;"
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&"
      command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
