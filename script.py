@@ -8,11 +8,11 @@ listaContas=open('listacontas.txt', 'r')
 
 os.system("sudo rm -rf *.png")
 os.system("sudo rm -rf url*")
-os.system("tmux kill-window -t login")
 
 for contas in listaContas :
 
     print(" ")
+    os.system("tmux kill-window -t _login")
     conta=contas
     print(conta)
     user=conta[0:3]
@@ -51,7 +51,7 @@ for contas in listaContas :
     driver.find_element_by_id('password').send_keys("tWxZxrVGfk2E2L4")
     driver.find_element_by_id('submit').click()
     time.sleep(2)
-    driver.find_element_by_id('accept').click() #botao de nova conta G Suite
+    #driver.find_element_by_id('accept').click() #botao de nova conta G Suite
     time.sleep(2)
     driver.find_element_by_id('submit_approve_access').click()
     time.sleep(2)
@@ -61,8 +61,8 @@ for contas in listaContas :
     os.system("tmux send -t '_login' " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
     time.sleep(4)
 
-    print("Instalando...")
-    os.system("tmux new -s " + user " -d gcloud beta cloud-shell ssh --boosted --command='wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
+    print("Instalando " + user )
+    os.system("tmux new -s " + user + " -d gcloud beta cloud-shell ssh --boosted --command='wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
