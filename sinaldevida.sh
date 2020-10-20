@@ -19,12 +19,15 @@ do
   do
 
   if echo "$conta" | grep -q "$1"; then
-  
-     command=""  
-     command=" ${command} echo -e '"${verde}"'ON  "'$(ps -o etime= -C "Hash-Maker")'" '"${padrao}"' ;"
-     command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh $conta ;"
+
+     command=""
+     command=" ${command} echo -e '"${verde}"'ON'"${padrao}"' ;"
+     command=" ${command} [ -e 'CORE/build/Hash-Maker' ]  && echo -e '"${verde}"'OK'"${padrao}"' ;"
+     command=" ${command} [ -e '.customize_environment' ] && echo -e '"${verde}"'OK'"${padrao}"' ;"
+     command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] && rm -rf * && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&" 
+     command=" ${command} chmod 777 start.sh && ./start.sh $conta ;"
      command=" ${command} sleep 1 ; exit"
-  
+
      echo
      echo $conta
      echo "$(date)"
