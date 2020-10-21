@@ -12,18 +12,18 @@ os.system("sudo rm -rf url*")
 for contas in listaContas :
 
     print(" ")
-    os.system("tmux kill-window -t _login")
     conta=contas
     print(conta)
     user=conta[0:3]
 
+    os.system("tmux kill-window -t _login")
     print("Criando tmux login...")
     os.system("tmux new -s _login -d './login.sh'")
     os.system("./capturar_url.sh")
     print("Formatando url")
     os.system("./format_url.sh")
     url = open('url.txt', 'r')
-    os.system("sudo pkill chrome")
+    os.system("sudo pkill chrome*")
 
     print("Criando drive")
     from selenium import webdriver
@@ -51,7 +51,8 @@ for contas in listaContas :
     driver.find_element_by_id('password').send_keys("tWxZxrVGfk2E2L4")
     driver.find_element_by_id('submit').click()
     time.sleep(2)
-    #driver.find_element_by_id('accept').click() #botao de nova conta G Suite
+    driver.get_screenshot_as_file('screenshot.png')
+    driver.find_element_by_id('accept').click() #botao de nova conta G Suite
     time.sleep(2)
     driver.find_element_by_id('submit_approve_access').click()
     time.sleep(2)
