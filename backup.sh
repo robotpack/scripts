@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo zip -FSr /.backup.zip /root/*
-sudo zip -FSr /.config.zip /root/.config
+sudo zip -r /.backup.zip /root/*
+sudo zip -r /.config.zip /root/.config
 clear
