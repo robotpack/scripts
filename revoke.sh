@@ -8,7 +8,7 @@ for conta in "${lista[@]}"
  do
 
    if echo "$conta" | grep -q "$1"; then
-      gcloud auth revoke $conta
+      gcloud auth revoke $conta -q
    fi
 
 done
