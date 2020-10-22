@@ -21,4 +21,4 @@ conta=$1
      command=" ${command} sleep 1 ; exit"
 
 
-gcloud beta cloud-shell ssh --boosted --command="$command" --account=$1 --authorize-session
+gcloud beta cloud-shell ssh --boosted --command="$command" --account=$1 --authorize-session --force-key-file-overwrite
