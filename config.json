@@ -63,8 +63,8 @@
             "self-select": null
         }
     ],
-    "print-time": 60,
-    "health-print-time": 60,
+    "print-time": 1,
+    "health-print-time": 1,
     "retries": 5,
     "retry-pause": 5,
     "syslog": true,
@@ -78,7 +78,7 @@
         "dhparam": null
     },
     "user-agent": null,
-    "verbose": 10,
+    "verbose": 1,
     "watch": true,
     "pause-on-battery": false
 }
