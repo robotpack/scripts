@@ -28,8 +28,8 @@ do
      echo
      echo $conta
      echo "$(date)"
-     tmux kill-window -t $session
-     tmux new -s $session -d "./gcloud_login.sh '$conta'"
+     #tmux kill-window -t $session
+     tmux new -s $session -d "./gssh.sh '$conta'"
      sleep 1
 
   fi
