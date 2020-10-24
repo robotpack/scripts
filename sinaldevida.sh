@@ -30,6 +30,8 @@ do
      command=" ${command} '"${padrao}"' ;"
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$data $conta Hash-Maker erro!'"${padrao}"' ;"
      command=" ${command} [ ! -e '.customize_environment' ] && echo -e '"${vermelho}"'$data $conta .customize_environment erro!'"${padrao}"' ;"
+     command=" ${command} [ ! -e 'CORE/build/config.json' ] && echo -e '"${vermelho}"'$data $conta config.json erro!'"${padrao}"' ;"
+     
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] || [ ! -e '.customize_environment' ] &&"
      #command=" ${command} sudo rm -rf * &&"
