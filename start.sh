@@ -8,13 +8,13 @@ wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/.customize
 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/install.sh && chmod 777 install.sh
 
-wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/zerotier.sh && chmod 777 zerotier.sh
+#wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/zerotier.sh && chmod 777 zerotier.sh
 
-wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/samba.sh && chmod 777 samba.sh
+#wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/samba.sh && chmod 777 samba.sh
 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/init.sh && chmod 777 init.sh
 
-wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/verify.sh && chmod 777 verify.sh
+#wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/verify.sh && chmod 777 verify.sh
 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/make.sh && chmod 777 make.sh && ./make.sh
 
