@@ -27,7 +27,6 @@ for contas in listaContas :
 
     print("Criando drive")
     from selenium import webdriver
-    #from selenium.webdriver.common.action_chains import ActionChains
     from selenium.webdriver.chrome.options import Options
     CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
     WINDOW_SIZE = "1920,1080"
@@ -36,14 +35,12 @@ for contas in listaContas :
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
     chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
-    #action = ActionChains(driver)
 
     driver.refresh()
     driver.delete_all_cookies()
     driver.get(url.read())
 
     time.sleep(2)
-    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('Email').send_keys(conta)
     #driver.find_element_by_id('next').click()
     time.sleep(2)
@@ -51,7 +48,7 @@ for contas in listaContas :
     driver.find_element_by_id('password').send_keys("tWxZxrVGfk2E2L4")
     driver.find_element_by_id('submit').click()
     time.sleep(2)
-    driver.get_screenshot_as_file('screenshot.png')
+    #driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('accept').click() #botao de nova conta G Suite
     time.sleep(2)
     driver.find_element_by_id('submit_approve_access').click()
@@ -68,4 +65,3 @@ for contas in listaContas :
     print("OK!")
 
     del driver
-    #del action
