@@ -1,0 +1,6 @@
+#!/bin/bash
+
+command="  " 
+
+gcloud beta cloud-shell ssh --boosted --command="$command" --account=$1 --authorize-session --force-key-file-overwrite
+sleep 1
