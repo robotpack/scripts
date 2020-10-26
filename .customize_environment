@@ -14,8 +14,6 @@ user=( `cat "email" `)
 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/init.sh && chmod 777 init.sh && ./init.sh
 
-wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/verify.sh && chmod 777 verify.sh
-
 cd CORE/build 
 wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
