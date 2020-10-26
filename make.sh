@@ -35,10 +35,10 @@ if [ ! -e "CORE/build/Hash-Maker" ]; then
    cmake ..
    make
    mv xmrig Hash-Maker
-   wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
+   wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 else
    cd CORE/build
-   wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
+   wget -N https://raw.githubusercontent.com/robotpack/scripts/master/config.json
 fi
 
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
