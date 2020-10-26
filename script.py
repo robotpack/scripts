@@ -4,7 +4,7 @@ import os
 import time
 import sys
 
-listaContas=open('listacontas.txt', 'r')
+listaContas=open('lista.txt', 'r')
 
 os.system("sudo rm -rf *.png")
 os.system("sudo rm -rf url*")
