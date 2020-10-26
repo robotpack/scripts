@@ -58,11 +58,13 @@ for contas in listaContas :
 
     os.system("tmux send -t '_login' " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
     time.sleep(4)
+    
+    email=conta[0:14]
 
     print("Instalando " + user )
     os.system("tmux new -s " + user + " -d " ) 
     time.sleep(2)
-    os.system("tmux send-keys -t " + user + " ' ./cloud-shell.sh ' " + conta + " C-m " )
+    os.system("tmux send-keys -t " + user + " ' ./cloud-shell.sh ' " + email + " C-m " )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
