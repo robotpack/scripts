@@ -60,7 +60,9 @@ for contas in listaContas :
     time.sleep(4)
 
     print("Instalando " + user )
-    os.system("tmux new -s " + user + " -d './cloud-shell.sh' " + conta )
+    os.system("tmux new -s " + user + " -d " ) 
+    time.sleep(2)
+    os.system("tmux send -t " + user + " ./cloud-shell.sh " + conta )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
