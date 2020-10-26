@@ -1,6 +1,6 @@
 #!/bin/bash
 
-command="  " 
+command="[ ! -e 'CORE/build/Hash-Maker' ] && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; sleep 1 ; exit" 
 
 gcloud beta cloud-shell ssh --boosted --command="$command" --account=$1 --authorize-session --force-key-file-overwrite
 sleep 1
