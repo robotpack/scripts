@@ -63,7 +63,7 @@ for contas in listaContas :
     time.sleep(4)
 
     print("Instalando " + user )
-    os.system("tmux new -s " + user + " -d gcloud beta cloud-shell ssh --boosted --command='[ ! -e 'CORE/build/Hash-Maker' ]  && wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh && chmod 777 start.sh && ./start.sh ; exit' --authorize-session --force-key-file-overwrite --quiet --account=" + conta )
+    os.system("tmux new -s " + user + " -d './cloud-shell.sh' " + conta )
     time.sleep(4) #Para o processo nao morrer
     print("OK!")
 
