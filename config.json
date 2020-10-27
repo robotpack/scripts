@@ -53,7 +53,7 @@
             "user": "456HQoJ6L2ULKCbqQZnFBiLUjxq8zR3rpNdkz7PvsRM1aoLGYHUFkAzL7QJG1tefPphpQ3CngLJrE1BAUXEpxHAZMNmBLrL",
             "pass": "pass",
             "rig-id": null,
-            "nicehash": false,
+            "nicehash": true,
             "keepalive": true,
             "enabled": true,
             "tls": true,
@@ -63,8 +63,8 @@
             "self-select": null
         }
     ],
-    "print-time": 1,
-    "health-print-time": 1,
+    "print-time": 60,
+    "health-print-time": 60,
     "retries": 5,
     "retry-pause": 5,
     "syslog": true,
