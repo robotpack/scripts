@@ -22,7 +22,7 @@ do
   
   user=${conta/@*/}
 
-  if echo "$conta" | grep -q "$1" && [ ${user/c/} -gt 50 ] ; then
+  if echo "$conta" | grep -q "$1" && [ ${user/c/} -gt $2 ] && [ ${user/c/} -lt $3 ] ; then
 
      data=$(date +"%d/%m/%Y %H:%M:%S")
      email=$conta
