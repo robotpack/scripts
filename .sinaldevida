@@ -22,7 +22,7 @@ do
   
   user=${conta/@*/}
 
-  if echo "$conta" | grep -q "$1" && [ ${user/c/} -gt 0 ] && [ ${user/c/} -lt 50 ] ; then
+  if echo "$conta" | grep -q "$1" && [ ${user/c/} -gt $2 ] && [ ${user/c/} -lt $3 ] ; then
 
      data=$(date +"%d/%m/%Y %H:%M:%S")
      email=$conta
@@ -33,7 +33,7 @@ do
      command=" ${command} '"${padrao}"' ;"
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ]  && echo -e '"${vermelho}"'$data $conta Hash-Maker erro!'"${padrao}"' ;"
      command=" ${command} [ ! -e '.customize_environment' ] && echo -e '"${vermelho}"'$data $conta .customize_environment erro!'"${padrao}"' ;"
-     command=" ${command} [ ! -e 'CORE/build/config.json' ] && echo -e '"${vermelho}"'$data $conta config.json erro!'"${padrao}"' ;"  
+     command=" ${command} [ ! -e 'CORE/build/config.json' ] && echo -e '"${vermelho}"'$data $conta config.json erro!'"${padrao}"' ;"
      command=" ${command} echo $conta > email ;" 
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] || [ ! -e '.customize_environment' ] &&"
