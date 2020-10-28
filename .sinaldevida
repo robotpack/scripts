@@ -19,8 +19,10 @@ do
 
  for conta in "${lista[@]}"
   do
+  
+  user=${conta/@*/}
 
-  if echo "$conta" | grep -q "$1"; then
+  if echo "$conta" | grep -q "$1" || ${user/c/} -gt 50 ; then
 
      data=$(date +"%d/%m/%Y %H:%M:%S")
      email=$conta
