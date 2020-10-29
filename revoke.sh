@@ -7,7 +7,7 @@ lista=( `cat "contas.txt" `)
 for conta in "${lista[@]}"
  do
 
-   if echo "$conta" | grep -q "$1"; then
+   if echo "$conta" | grep -q "$1" && [ ${conta/@*/} != 'c00' ] ; then
       gcloud auth revoke $conta -q
    fi
 
