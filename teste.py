@@ -7,7 +7,6 @@ import pandas as pd
 
 lista=pd.read_csv('gmail.csv')
 
-for i in range(len(lista)):
-    Class = lista.iloc[i,1]
-    print (Class)
+for label, row in lista.iterrows():
+    print(label + " : " + row["email"])
         
