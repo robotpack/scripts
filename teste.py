@@ -37,7 +37,9 @@ for label, row in lista.iterrows():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
-    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--no-sandbox') 
+    chrome_options.add_argument('--allow-insecure-localhost') 
+    chrome_options.add_argument('--allow-running-insecure-content')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
 
     driver.refresh()
