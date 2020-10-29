@@ -48,6 +48,7 @@ for label, row in lista.iterrows():
     driver.find_element_by_id('Email').send_keys(conta)
     driver.find_element_by_id('next').click()
     time.sleep(2)
+    driver.get_screenshot_as_file('screenshot.png')
     driver.find_element_by_id('password').click()
     driver.find_element_by_id('password').send_keys(row['senha'])
     driver.find_element_by_id('submit').click()
