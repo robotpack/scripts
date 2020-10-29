@@ -5,8 +5,11 @@ import time
 import sys
 import pandas as pd
 
-lista=pd.read_csv('gmail.csv')
+lista=pd.read_csv('gmail.csv' , delimiter=';')
+
+lista.head()
 
 for label, row in lista.iterrows():
-    print(label + " : " + row["email"])
+    print(row['email'] + ' ' + row['senha'] )
+
         
