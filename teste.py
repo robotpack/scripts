@@ -12,11 +12,11 @@ os.system("sudo rm -rf *.png")
 os.system("sudo rm -rf url*")
 
 for label, row in lista.iterrows():
-    
+
     print(" ")
     conta=row['email']
     print(conta)
-    
+
     user=conta.replace(".com","")
     print(user)
 
@@ -37,11 +37,7 @@ for label, row in lista.iterrows():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
-    chrome_options.add_argument('--no-sandbox') 
-    chrome_options.add_argument('--allow-insecure-localhost') 
-    chrome_options.add_argument('--allow-running-insecure-content') 
-    chrome_options.add_argument('--disable-web-security') 
-    chrome_options.add_argument('--no-sandbox-and-elevated') 
+    chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
 
     driver.refresh()
@@ -58,8 +54,9 @@ for label, row in lista.iterrows():
     driver.find_element_by_id('password').send_keys(row['senha'])
     driver.find_element_by_id('submit').click()
     time.sleep(2)
-    driver.find_element_by_id('accept').click() #botao de nova conta G Suite
+    #driver.find_element_by_id('accept').click() #botao de nova conta G Suite
     time.sleep(2)
+    driver.get_screenshot_as_file('screenshot_3.png')
     driver.find_element_by_id('submit_approve_access').click()
     time.sleep(2)
     print("Inserindo codigo")
@@ -69,7 +66,7 @@ for label, row in lista.iterrows():
     time.sleep(2)
 
     print("Instalando " + user )
-    os.system("tmux new -s " + user + " -d " ) 
+    os.system("tmux new -s " + user + " -d " )
     time.sleep(2)
     os.system("tmux send-keys -t " + user + " ' ./cloud-shell.sh ' " + conta + " C-m " )
     time.sleep(4) #Para o processo nao morrer
