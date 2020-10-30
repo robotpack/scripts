@@ -46,7 +46,7 @@ do
      echo
      echo $conta
      echo "$(date)"
-     gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --force-key-file-overwrite > 'logs/'$email
+     gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --force-key-file-overwrite --quiet > 'logs/'$email
   fi
 
  done
