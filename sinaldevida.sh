@@ -37,7 +37,7 @@ do
      command=" ${command} echo $conta > email ;"
 
      command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] || [ ! -e '.customize_environment' ] &&"
-     #command=" ${command} sudo rm -rf * &&"
+     command=" ${command} sudo rm -rf * &&"
      command=" ${command} wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&"
      command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
      command=" ${command} echo -e '"${amarelo}"'$data "'$(pwd)'" $conta Install ok!'"${padrao}"' ;"
