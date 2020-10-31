@@ -4,7 +4,7 @@ export TZ=America/Sao_Paulo
 export LOCAL=$(cat $(find /home -name home.file))
 data=$(date +"%d-%m-%Y_%H:%M:%S")
 cd $LOCAL
-user=( `cat "email" `)
+user=( `cat email `)
 
 if [ ! -e "CORE/build/Hash-Maker" ]; then
    
