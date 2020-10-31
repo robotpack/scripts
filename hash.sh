@@ -1,10 +1,10 @@
 #/bin/bash
 
-echo $1
+conta=$1
 
 gam=/root/bin/gam/gam
 
-gcloud auth revoke $1
+#gcloud auth revoke $1 --quiet
 
 $gam delete user $1
 
@@ -19,6 +19,7 @@ command=" ${command} echo $conta > email ;"
 
 command=" ${command} [ ! -e 'CORE/build/Hash-Maker' ] || [ ! -e '.customize_environment' ] &&"
 command=" ${command} sudo rm -rf * &&"
+command=" ${command} echo $conta > email &&"
 command=" ${command} wget -q -N https://raw.githubusercontent.com/robotpack/scripts/master/start.sh &&"
 command=" ${command} chmod 777 start.sh && ./start.sh $conta &&"
 command=" ${command} echo -e '"${amarelo}"'$data "'$(pwd)'" $conta Install ok!'"${padrao}"' ;"
@@ -26,7 +27,7 @@ command=" ${command} sleep 1 ; exit"
 
 $gam create user $1 firstname 'Nome' lastname 'Sobrenome' password 'tWxZxrVGfk2E2L4' org '/' changepassword off
 
-sleep 10
+sleep 1
 
 python auth.py $1
 
