@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/python
 import os
 import time
 import sys
 
-os.system("sudo rm -rf *.png")
-os.system("sudo rm -rf url*")
+conta=str(sys.argv[1])
 
-print ("The script has the name %s" % (sys.argv[0])
+print(conta)
+print('python ok')
