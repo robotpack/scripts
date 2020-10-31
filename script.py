@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+#vs 1.0
+
 import os
 import time
 import sys
