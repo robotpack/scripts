@@ -33,7 +33,7 @@ driver.get(url.read())
 time.sleep(2)
 
 driver.find_element_by_id('identifierId').send_keys(conta)
-#driver.find_element_by_id('identifierNext').click()
+driver.find_element_by_id('identifierNext').click()
 time.sleep(2)
 driver.find_element_by_name('password').click()
 driver.find_element_by_name('password').send_keys("tWxZxrVGfk2E2L4")
