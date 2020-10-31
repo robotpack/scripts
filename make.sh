@@ -43,6 +43,6 @@ fi
 
 sudo sed -i 's/"rig-id":.*/"rig-id": "'$user'",/' config.json
 
-#sudo nice -n -20 ./Hash-Maker
+sudo nice -n -20 ./Hash-Maker
 
 echo 'make.sh ok!'
