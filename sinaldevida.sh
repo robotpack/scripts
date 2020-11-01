@@ -13,8 +13,10 @@ do
 
  for conta in "${lista[@]}"
   do
-
+  
+  echo $conta
   ./hash.sh $conta
+  echo
 
  done
 
