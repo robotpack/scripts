@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 import os
 import time
 import sys
@@ -7,9 +8,9 @@ conta=str(sys.argv[1])
 
 user=conta.replace(".com","")
 
-os.system("tmux kill-window -t _login")
+os.system("tmux kill-window -t " + user)
 print("Criando tmux login...")
-os.system("tmux new -s _login -d './login.sh'")
+os.system("tmux new -s " + user + " -d './login.sh'")
 os.system("./capturar_url.sh")
 print("Formatando url")
 os.system("./format_url.sh")
@@ -39,7 +40,7 @@ driver.find_element_by_name('password').click()
 driver.find_element_by_name('password').send_keys("tWxZxrVGfk2E2L4")
 driver.find_element_by_id('passwordNext').click()
 time.sleep(2)
-driver.get_screenshot_as_file('screenshot.png')
+#driver.get_screenshot_as_file('screenshot.png')
 driver.find_element_by_id('accept').click() #botao de nova conta G Suite
 time.sleep(2)
 driver.find_element_by_id('submit_approve_access').click()
@@ -47,7 +48,9 @@ time.sleep(2)
 print("Inserindo codigo")
 print(driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span/div/textarea').text)
 
-os.system("tmux send -t '_login' " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
+os.system("tmux send -t " + user + " " + driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/span').text + " C-m")
 time.sleep(2)
 
 del driver
+
+print("auth ok!")
