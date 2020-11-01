@@ -12,7 +12,7 @@ command=" ${command} chmod 777 download.sh &&"
 command=" ${command} ./download.sh $conta &&"
 command=" ${command} sleep 1 ; exit"
 
-$gam create user $1 firstname 'Nome' lastname 'Sobrenome' password 'tWxZxrVGfk2E2L4' org '/' changepassword off
+$gam create user $conta firstname 'Nome' lastname 'Sobrenome' password 'tWxZxrVGfk2E2L4' org '/' changepassword off
 
 sleep 1
 
