@@ -2,10 +2,12 @@
 
 rm -rf url*
 
+session=$1
+
 while true 
   do
 
-   tmux capture-pane -J -p -t _login > url
+   tmux capture-pane -J -p -t $session > url
 
    if grep -q "Enter verification code" url ; then 
       echo "url capturada!"
