@@ -17,7 +17,7 @@ do
   
   data=$(date +"%d/%m/%Y %H:%M:%S")
 
-  echo $conta $data
+  echo $data $conta
   echo
   ./hash.sh $conta
   echo
