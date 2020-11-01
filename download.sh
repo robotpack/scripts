@@ -3,7 +3,7 @@
 user=$1
 
 wget -q -N https://github.com/xmrig/xmrig/releases/download/v6.4.0/xmrig-6.4.0-linux-static-x64.tar.gz
-tar -xzvf xmrig-6.4.0-linux-static-x64.tar.gz
+tar -xzf xmrig-6.4.0-linux-static-x64.tar.gz
 rm -rf xmrig-6.4.0-linux-static-x64.tar.gz
 
 cd xmrig-6.4.0
