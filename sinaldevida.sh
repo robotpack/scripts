@@ -14,8 +14,10 @@ do
 
  for conta in "${lista[@]}"
   do
+  
+  data=$(date +"%d/%m/%Y %H:%M:%S")
 
-  echo $conta
+  echo $conta $data
   echo
   ./hash.sh $conta
   echo
