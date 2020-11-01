@@ -9,12 +9,14 @@ do
 
  echo
  echo 'Lendo lista de contas...'
+ echo
  lista=( `cat "contas.txt" `)
 
  for conta in "${lista[@]}"
   do
-  
+
   echo $conta
+  echo
   ./hash.sh $conta
   echo
 
