@@ -4,9 +4,7 @@ conta=$1
 
 gam=/root/bin/gam/gam
 
-#gcloud auth revoke $1 --quiet
-
-$gam delete user $1
+$gam delete user $conta
 
 command=""
 command=" ${command} wget -q -N https://raw.githubusercontent.com/robotpack/scripts/GAM/download.sh &&"
@@ -18,10 +16,10 @@ $gam create user $1 firstname 'Nome' lastname 'Sobrenome' password 'tWxZxrVGfk2E
 
 sleep 1
 
-python auth.py $1
+python auth.py $conta
 
 sleep 1
 
-gcloud beta cloud-shell ssh --boosted --command="$command" --account=$1 --authorize-session --force-key-file-overwrite
+gcloud beta cloud-shell ssh --boosted --command="$command" --account=$conta --authorize-session --force-key-file-overwrite
 
 sleep 1
