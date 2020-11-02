@@ -14,7 +14,7 @@ do
 
  for conta in "${lista[@]}"
   do
-  
+
   data=$(date +"%d/%m/%Y %H:%M:%S")
 
   echo $data $conta
